@@ -3,12 +3,9 @@ package Tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import Poker.Card;
 import Poker.Hand;
 
 public class HandTest {
@@ -72,11 +69,7 @@ public class HandTest {
 	}
 	
 	private Hand createHand(String[] cards) {
-		ArrayList<Card> cardList = new ArrayList<Card>();
-		for(int i = 0; i < cards.length; i++) {
-			cardList.add(new Card(cards[i]));
-		}
-		return new Hand(cardList);
+		return new Hand(cards);
 	}
 	
 	

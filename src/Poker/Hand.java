@@ -14,21 +14,28 @@ public class Hand {
 		this.groups = getAllPairs();
 	}
 	
+	public Hand(String[] cardStrings) {
+		ArrayList<Card> cardList = new ArrayList<Card>();
+		for(int i = 0; i < cardStrings.length; i++) {
+			cardList.add(new Card(cardStrings[i]));
+		}
+		this.cards = cardList;
+		this.groups = getAllPairs();
+	}
+	
 	public String getBestHand() {
 		if(hasFiveOfAKind()) {
 			return "5 of a Kind";
 		} else if (hasAStraight() && hasAFlush()) {
 			return "Straight Flush";
 		} else if (hasFourOfAKind()) {
-			return "5 of a Kind";
+			return "4 of a Kind";
 		} else if (hasAFullHouse()) {
 			return "Full House";
 		} else if (hasAFlush()) {
 			return "Flush";
 		} else if (hasAStraight()) {
 			return "Straight";
-		} else if (hasAFullHouse()) {
-			return "FullHouse";
 		} else if (hasThreeOfAKind()) {
 			return "Three of a Kind";
 		} else if (hasTwoPair()) {
@@ -101,7 +108,7 @@ public class Hand {
 	public boolean hasAStraight() {
 		Collections.sort(cards);
 		Card lowestCard = cards.get(0);
-		for(int i = 1; i < cards.size() - 1; i++) {
+		for(int i = 1; i < cards.size(); i++) {
 			Card nextCard = cards.get(i);
 			if(nextCard.getRank() - lowestCard.getRank() != i) {
 				return false;

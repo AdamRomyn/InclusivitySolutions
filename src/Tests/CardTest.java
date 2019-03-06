@@ -11,7 +11,7 @@ import Poker.Card;
 public class CardTest {
 	private Card card1;
 	private Card card2;
-	
+
 	@Before
 	public void before() {
 		card1 = new Card("AS");
@@ -25,12 +25,12 @@ public class CardTest {
 		assertTrue(this.card1.getSymbols().equals("A"));
 		assertTrue(this.card2.getSymbols().equals("10"));
 	}
-	
+
 	@Test
 	public void testCompareTo() {
-		assertEquals(this.card1,this.card1);
-		assertEquals(this.card1.compareTo(this.card2),4);
-		assertEquals(this.card2.compareTo(this.card1),-4);
+		assertEquals(this.card1, this.card1);
+		assertEquals(this.card1.compareTo(this.card2), 4);
+		assertEquals(this.card2.compareTo(this.card1), -4);
 	}
 
 }
