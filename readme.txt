@@ -6,7 +6,7 @@ HOW TO USE THE PROGRAM:
 Execute the Main class and the dricer method that runs the program will start.
 It will ask for 5 cards. Make sure you enter these cards sepereated by commas and with uppercase letters only.
 
-*Example:*
+Example:
 AS,10S,JS,QS,KS
 
 The program will output the best hand it finds.
