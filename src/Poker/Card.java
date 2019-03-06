@@ -13,6 +13,7 @@ public class Card implements Comparable<Card> {
 		int cardTextLength = cardText.length();
 		this.suit = cardText.charAt(cardTextLength - 1);
 		this.symbols = cardText.substring(0,cardTextLength - 1);
+		this.rank = getCardRank();
 	}
 	
 	public String getSymbols() {
@@ -21,6 +22,10 @@ public class Card implements Comparable<Card> {
 	
 	public char getSuit() {
 		return this.suit;
+	}
+	
+	public int getRank() {
+		return this.rank;
 	}
 	
 	private int getCardRank() {
@@ -41,8 +46,8 @@ public class Card implements Comparable<Card> {
 	@Override
 	public int compareTo(Card otherCard) {
 		// This function will get the card rank in number form and compare the rankings
-		int currentCardRank = this.getCardRank();
-		int otherCardRank = otherCard.getCardRank();
+		int currentCardRank = this.rank;
+		int otherCardRank = otherCard.getRank();
 		return currentCardRank - otherCardRank;
 	}
 	
