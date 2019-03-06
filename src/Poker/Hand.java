@@ -15,12 +15,29 @@ public class Hand {
 	}
 	
 	public String getBestHand() {
-		int groupSize;
-		if(this.groups.size() == 1) {
-			groupSize = this.groups.get(0);
-			if(groupSize > 3) {
-				System.out.println(groupSize + " of a Kind");
-			}
+		if(hasFiveOfAKind()) {
+			return "5 of a Kind";
+		} else if (hasAStraight() && hasAFlush()) {
+			return "Straight Flush";
+		} else if (hasFourOfAKind()) {
+			return "5 of a Kind";
+		} else if (hasAFullHouse()) {
+			return "Full House";
+		} else if (hasAFlush()) {
+			return "Flush";
+		} else if (hasAStraight()) {
+			return "Straight";
+		} else if (hasAFullHouse()) {
+			return "FullHouse";
+		} else if (hasThreeOfAKind()) {
+			return "Three of a Kind";
+		} else if (hasTwoPair()) {
+			return "Two Pair";
+		} else if (hasOnePair()) {
+			return "A Pair";
+		}  else {
+			Card highestCard = getHighestCard();
+			return highestCard.getSymbols() + " High";
 		}
 	}
 	
@@ -38,7 +55,7 @@ public class Hand {
 		return false;
 	}
 	
-	public boolean hasFullHouse() {
+	public boolean hasAFullHouse() {
 		if(this.groups.size() == 2 && (this.groups.get(0) == 3 || this.groups.get(1) == 3)) {
 			return true;
 		}
@@ -71,7 +88,7 @@ public class Hand {
 		return this.cards.get(this.cards.size() - 1);
 	}
 	
-	public boolean hasFlush() {
+	public boolean hasAFlush() {
 		char suit = this.cards.get(0).getSuit();
 		for(Card card : cards) {
 			if(suit != card.getSuit()) {
@@ -81,7 +98,7 @@ public class Hand {
 		return true;
 	}
 	
-	public boolean hasStraight() {
+	public boolean hasAStraight() {
 		Collections.sort(cards);
 		Card lowestCard = cards.get(0);
 		for(int i = 1; i < cards.size() - 1; i++) {
