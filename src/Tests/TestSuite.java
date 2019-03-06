@@ -7,6 +7,7 @@ import org.junit.runners.Suite;
 
 @Suite.SuiteClasses({
    CardTest.class,
+   HandTest.class
 })
 
 public class TestSuite {   

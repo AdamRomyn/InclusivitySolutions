@@ -14,7 +14,6 @@ public class CardTest {
 	
 	@Before
 	public void before() {
-		System.out.println("Setting up the test case data!");
 		card1 = new Card("AS");
 		card2 = new Card("10S");
 	}
@@ -23,6 +22,8 @@ public class CardTest {
 	public void testProperties() {
 		assertTrue(this.card1.getSuit() == 'S');
 		assertTrue(this.card1.getSuit() == this.card2.getSuit());
+		assertTrue(this.card1.getSymbols().equals("A"));
+		assertTrue(this.card2.getSymbols().equals("10"));
 	}
 	
 	@Test
